@@ -76,15 +76,9 @@ CONTROLNET_MODELS=(
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
-function install_gdown() {
-    if ! command -v gdown &> /dev/null; then
-        echo "Installing gdown..."
-        pip install --user gdown
-        export PATH="$PATH:~/.local/bin"  # Ensure the local bin directory is in PATH
-    else
-        echo "gdown is already installed."
-    fi
-}
+declare -A files_and_dirs=(
+    ["https://drive.google.com/file/d/1O6HfxHHbau_vgrLi0WyJ8ZDyAwv4sv0R/view?usp=drive_link"]="workspace/storage/stable_diffusion/models/text_encoders"
+)
 
 # Function to download a file from Google Drive
 function download_from_gdrive() {
@@ -124,7 +118,7 @@ function provisioning_start() {
 
     # Example: Google Drive download
 
-    download_from_gdrive "https://drive.google.com/uc?id=1O6HfxHHbau_vgrLi0WyJ8ZDyAwv4sv0R" 
+    download_from_gdrive files_and_dirs
 
     provisioning_print_header
     provisioning_get_apt_packages
