@@ -22,11 +22,11 @@ PIP_PACKAGES=(
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/cubiq/ComfyUI_essentials"
-    # "https://github.com/benjiyaya/ComfyUI-HunyuanVideoImagesGuider"
+    "https://github.com/benjiyaya/ComfyUI-HunyuanVideoImagesGuider"
 )
 
 CHECKPOINT_MODELS=(
-    "https://civitai-delivery-worker-prod.5ac0637cfd0766c97916cefa3764fbdf.r2.cloudflarestorage.com/model/73783/pornmasterAmateurSDXL.CKu4.safetensors?X-Amz-Expires=86400&response-content-disposition=attachment%3B%20filename%3D%22pornmasterAmateur_sdxlV1VAE.safetensors%22&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e01358d793ad6966166af8b3064953ad/20250118/us-east-1/s3/aws4_request&X-Amz-Date=20250118T114301Z&X-Amz-SignedHeaders=host&X-Amz-Signature=59f2b3f20582c1edacbc51d5bef890042cb8b9dba9cc2ffaf684b83707bdd615"
+
     #" https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
@@ -37,7 +37,7 @@ UNET_MODELS=(
 )
 
 LORA_MODELS=(
-    #"https://civitai.com/api/download/models/16576"
+    "https://civitai.com/api/download/models/16576"
 )
 
 VAE_MODELS=(
@@ -76,7 +76,31 @@ CONTROLNET_MODELS=(
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
+function install_gdown() {
+    if ! command -v gdown &> /dev/null; then
+        echo "Installing gdown..."
+        pip install --user gdown
+        export PATH="$PATH:~/.local/bin"  # Ensure the local bin directory is in PATH
+    else
+        echo "gdown is already installed."
+    fi
+}
 
+# Function to download a file from Google Drive
+function download_from_gdrive() {
+    local file_url="$1"
+    local output_dir="$2"
+    local file_id=$(echo "$file_url" | grep -o 'd/[^/]*' | cut -d'/' -f2)
+
+    if [[ -z $file_id ]]; then
+        echo "Invalid Google Drive link: $file_url"
+        return 1
+    fi
+
+    echo "Downloading Google Drive file: $file_url"
+    mkdir -p "$output_dir"
+    gdown "https://drive.google.com/uc?id=$file_id" --output "$output_dir/"
+}
 function provisioning_start() {
     if [[ ! -d /opt/environments/python ]]; then 
         export MAMBA_BASE=true
