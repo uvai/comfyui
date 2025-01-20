@@ -77,6 +77,7 @@ CONTROLNET_MODELS=(
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
 declare -A files_and_dirs=(
+    #clip_l.safetensors
     ["https://drive.google.com/file/d/1O6HfxHHbau_vgrLi0WyJ8ZDyAwv4sv0R/view?usp=drive_link"]="workspace/storage/stable_diffusion/models/text_encoders"
 )
 
