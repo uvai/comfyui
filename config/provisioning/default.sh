@@ -110,7 +110,7 @@ function provisioning_start() {
 
     # Example: Google Drive download
     install_gdown  # Ensure gdown is installed
-    download_from_gdrive "https://drive.google.com/file/d/1N7l_0U2ceiwRVNogPCoKjrHFNmx_2huV/view?usp=sharing"
+    download_from_gdrive "https://drive.google.com/uc?id=1N7l_0U2ceiwRVNogPCoKjrHFNmx_2huV"
 
     provisioning_print_header
     provisioning_get_apt_packages
