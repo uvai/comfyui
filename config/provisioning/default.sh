@@ -108,6 +108,10 @@ function provisioning_start() {
     source /opt/ai-dock/etc/environment.sh
     source /opt/ai-dock/bin/venv-set.sh comfyui
 
+    # Example: Google Drive download
+    install_gdown  # Ensure gdown is installed
+    download_from_gdrive "https://drive.google.com/file/d/1N7l_0U2ceiwRVNogPCoKjrHFNmx_2huV/view?usp=sharing"
+
     provisioning_print_header
     provisioning_get_apt_packages
     provisioning_get_nodes
