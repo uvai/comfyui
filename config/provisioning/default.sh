@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#9 nebula version
 # This file will be sourced in init.sh
 
 # https://raw.githubusercontent.com/ai-dock/comfyui/main/config/provisioning/default.sh
