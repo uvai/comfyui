@@ -29,6 +29,7 @@ CHECKPOINT_MODELS=(
 
     #" https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
+    "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/diffusion_models/hunyuan_video_t2v_720p_bf16.safetensors"
     # "https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
 )
 
@@ -42,8 +43,9 @@ LORA_MODELS=(
 
 VAE_MODELS=(
     # "https://huggingface.co/stabilityai/sd-vae-ft-ema-original/resolve/main/vae-ft-ema-560000-ema-pruned.safetensors"
-    # "https://huggingface.co/stabilityai/sd-vae-ft-mse-original/resolve/main/vae-ft-mse-840000-ema-pruned.safetensors"
+
     "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors"
+    
 )
 
 ESRGAN_MODELS=(
@@ -51,6 +53,13 @@ ESRGAN_MODELS=(
     # "https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
     # "https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth"
 )
+
+TEXT_ENCODER_MODELS=(
+    # "https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x4.pth"
+    # "https://huggingface.co/FacehugmanIII/4x_foolhardy_Remacri/resolve/main/4x_foolhardy_Remacri.pth"
+    "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/llava_llama3_fp8_scaled.safetensors"
+)
+
 
 CONTROLNET_MODELS=(
     # "https://huggingface.co/lllyasviel/sd_control_collection/resolve/main/diffusers_xl_canny_mid.safetensors"
@@ -76,50 +85,50 @@ CONTROLNET_MODELS=(
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
-declare -A files_and_dirs=(
-    #clip_l.safetensors
-    ["1O6HfxHHbau_vgrLi0WyJ8ZDyAwv4sv0R"]="/workspace/storage/stable_diffusion/models/text_encoders"
-)
+# declare -A files_and_dirs=(
+#     #clip_l.safetensors
+#     ["1O6HfxHHbau_vgrLi0WyJ8ZDyAwv4sv0R"]="/workspace/storage/stable_diffusion/models/text_encoders"
+# )
 
 # Function to download a file from Google Drive
-function download_from_gdrive() {
-    local -n files_and_dirs=$1 # Use nameref to pass an associative array
-    for file_url in "${!files_and_dirs[@]}"; do
-        local output_dir="${files_and_dirs[$file_url]}"
-        local file_id=$(echo "$file_url" | grep -o 'd/[^/]*' | cut -d'/' -f2)
+# function download_from_gdrive() {
+#     local -n files_and_dirs=$1 # Use nameref to pass an associative array
+#     for file_url in "${!files_and_dirs[@]}"; do
+#         local output_dir="${files_and_dirs[$file_url]}"
+#         local file_id=$(echo "$file_url" | grep -o 'd/[^/]*' | cut -d'/' -f2)
         
-        if [[ -z $file_id ]]; then
-            echo "Invalid Google Drive link: $file_url"
-            continue
-        fi
+#         if [[ -z $file_id ]]; then
+#             echo "Invalid Google Drive link: $file_url"
+#             continue
+#         fi
         
-        # Ensure the output directory exists
-        if [[ ! -d $output_dir ]]; then
-            echo "Creating directory: $output_dir"
-            mkdir -p "$output_dir"
-        fi
+#         # Ensure the output directory exists
+#         if [[ ! -d $output_dir ]]; then
+#             echo "Creating directory: $output_dir"
+#             mkdir -p "$output_dir"
+#         fi
 
-        # Extract filename from URL and check if it already exists
-        local file_name=$(gdown --quiet --fuzzy --id "$file_id" --print-only | xargs basename)
-        if [[ -e "$output_dir/$file_name" ]]; then
-            echo "File already exists: $output_dir/$file_name. Skipping download."
-            continue
-        fi
+#         # Extract filename from URL and check if it already exists
+#         local file_name=$(gdown --quiet --fuzzy --id "$file_id" --print-only | xargs basename)
+#         if [[ -e "$output_dir/$file_name" ]]; then
+#             echo "File already exists: $output_dir/$file_name. Skipping download."
+#             continue
+#         fi
 
-        echo "Downloading Google Drive file: $file_url to $output_dir/$file_name"
-        gdown "https://drive.google.com/uc?id=$file_id" --output "$output_dir/$file_name"
-    done
-}
-function provisioning_start() {
-    if [[ ! -d /opt/environments/python ]]; then 
-        export MAMBA_BASE=true
-    fi
-    source /opt/ai-dock/etc/environment.sh
-    source /opt/ai-dock/bin/venv-set.sh comfyui
+#         echo "Downloading Google Drive file: $file_url to $output_dir/$file_name"
+#         gdown "https://drive.google.com/uc?id=$file_id" --output "$output_dir/$file_name"
+#     done
+# }
+# function provisioning_start() {
+#     if [[ ! -d /opt/environments/python ]]; then 
+#         export MAMBA_BASE=true
+#     fi
+#     source /opt/ai-dock/etc/environment.sh
+#     source /opt/ai-dock/bin/venv-set.sh comfyui
 
-    # Example: Google Drive download
+#     # Example: Google Drive download
 
-    download_from_gdrive files_and_dirs
+#     download_from_gdrive files_and_dirs
 
     provisioning_print_header
     provisioning_get_apt_packages
@@ -143,6 +152,9 @@ function provisioning_start() {
     provisioning_get_models \
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
+    provisioning_get_models \
+        "${WORKSPACE}/storage/stable_diffusion/models/text_encoders" \
+        "${TEXT_ENCODER_MODELS[@]}"
     provisioning_print_end
 }
 
