@@ -23,6 +23,12 @@ NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/cubiq/ComfyUI_essentials"
     "https://github.com/benjiyaya/ComfyUI-HunyuanVideoImagesGuider"
+    "https://github.com/kijai/ComfyUI-Florence2"
+    "https://github.com/kijai/ComfyUI-KJNodes"
+    "https://github.com/un-seen/comfyui-tensorops"
+    "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+    
+    
 )
 
 CHECKPOINT_MODELS=(
@@ -38,7 +44,7 @@ UNET_MODELS=(
 )
 
 LORA_MODELS=(
-    "https://civitai.com/api/download/models/16576"
+    # "https://civitai.com/api/download/models/16576"
 )
 
 VAE_MODELS=(
