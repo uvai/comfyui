@@ -85,50 +85,17 @@ CONTROLNET_MODELS=(
 )
 
 ### DO NOT EDIT BELOW HERE UNLESS YOU KNOW WHAT YOU ARE DOING ###
-# declare -A files_and_dirs=(
-#     #clip_l.safetensors
-#     ["1O6HfxHHbau_vgrLi0WyJ8ZDyAwv4sv0R"]="/workspace/storage/stable_diffusion/models/text_encoders"
-# )
 
-# Function to download a file from Google Drive
-# function download_from_gdrive() {
-#     local -n files_and_dirs=$1 # Use nameref to pass an associative array
-#     for file_url in "${!files_and_dirs[@]}"; do
-#         local output_dir="${files_and_dirs[$file_url]}"
-#         local file_id=$(echo "$file_url" | grep -o 'd/[^/]*' | cut -d'/' -f2)
-        
-#         if [[ -z $file_id ]]; then
-#             echo "Invalid Google Drive link: $file_url"
-#             continue
-#         fi
-        
-#         # Ensure the output directory exists
-#         if [[ ! -d $output_dir ]]; then
-#             echo "Creating directory: $output_dir"
-#             mkdir -p "$output_dir"
-#         fi
+function provisioning_start() {
+    if [[ ! -d /opt/environments/python ]]; then 
+        export MAMBA_BASE=true
+    fi
+    source /opt/ai-dock/etc/environment.sh
+    source /opt/ai-dock/bin/venv-set.sh comfyui
 
-#         # Extract filename from URL and check if it already exists
-#         local file_name=$(gdown --quiet --fuzzy --id "$file_id" --print-only | xargs basename)
-#         if [[ -e "$output_dir/$file_name" ]]; then
-#             echo "File already exists: $output_dir/$file_name. Skipping download."
-#             continue
-#         fi
+    # Example: Google Drive download
 
-#         echo "Downloading Google Drive file: $file_url to $output_dir/$file_name"
-#         gdown "https://drive.google.com/uc?id=$file_id" --output "$output_dir/$file_name"
-#     done
-# }
-# function provisioning_start() {
-#     if [[ ! -d /opt/environments/python ]]; then 
-#         export MAMBA_BASE=true
-#     fi
-#     source /opt/ai-dock/etc/environment.sh
-#     source /opt/ai-dock/bin/venv-set.sh comfyui
-
-#     # Example: Google Drive download
-
-#     download_from_gdrive files_and_dirs
+    download_from_gdrive files_and_dirs
 
     provisioning_print_header
     provisioning_get_apt_packages
