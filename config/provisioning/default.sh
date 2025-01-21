@@ -120,7 +120,7 @@ function provisioning_start() {
         "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
     provisioning_get_models \
-        "${WORKSPACE}/storage/stable_diffusion/models/text_encoders" \
+        "${WORKSPACE}/ComfyUI/models/text_encoders" \
         "${TEXT_ENCODER_MODELS[@]}"
     provisioning_print_end
 }
