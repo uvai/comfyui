@@ -56,13 +56,20 @@ FILES = [
 		"folder": "/workspace/storage/stable_diffusion/models/lora",
 		"filename": "edge_of_reality_ep30_25200stp_lora_theaidoctor.safetensors"
 	},
-	{#vintage
-		"url": "https://drive.google.com/file/d/1b55oYWLTRd5qwi11Yn3vn61crQ-icbrv/view?usp=sharing",
+	# {#vintage
+	# 	"url": "https://drive.google.com/file/d/1b55oYWLTRd5qwi11Yn3vn61crQ-icbrv/view?usp=sharing",
+	# 	"folder": "/workspace/storage/stable_diffusion/models/lora",
+	# 	"filename": "vintage_e60_512.safetensors"
+	# },
+	{#bouncing breasts
+		"url": "https://drive.google.com/file/d/1X562Zs5ZHalCMSI60ij1ODQJxQSdmvsW/view?usp=sharing",
 		"folder": "/workspace/storage/stable_diffusion/models/lora",
-		"filename": "vintage_e60_512.safetensors"
+		"filename": "bouncing_breasts_hunyuan.safetensors"
 	},
+		
 	
 	# Add more entries as needed...
+	https://drive.google.com/file/d/1X562Zs5ZHalCMSI60ij1ODQJxQSdmvsW/view?usp=sharing
 	
 ]
 
