@@ -80,11 +80,13 @@ def main():
 	"""
 	for item in FILES:
 		
-		print(f"Debug: Processing item - {filename}")
+
 		
 		url = item["url"]
 		folder = item["folder"]
 		filename = item["filename"]
+		
+		print(f"Debug: Processing item - {filename}")
 
 		print(f"\nProcessing: {url}")
 		print(f"Target folder: {folder}")
