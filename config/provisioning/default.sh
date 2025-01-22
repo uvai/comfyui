@@ -132,6 +132,19 @@ function provisioning_start() {
         "${WORKSPACE}/ComfyUI/models/text_encoders" \
         "${TEXT_ENCODER_MODELS[@]}"
     provisioning_print_end
+
+     # Run the extra_models.py script from the remote URL
+    EXTRA_MODELS_URL="https://raw.githubusercontent.com/uvai/comfyui/main/config/provisioning/extra_models.py"
+    TEMP_EXTRA_MODELS="extra_models.py"
+
+    echo "Fetching extra_models.py from ${EXTRA_MODELS_URL}..."
+    if curl -fsSL -o "${TEMP_EXTRA_MODELS}" "${EXTRA_MODELS_URL}"; then
+        echo "Running extra_models.py..."
+        python3 "${TEMP_EXTRA_MODELS}"
+        rm -f "${TEMP_EXTRA_MODELS}"  # Clean up temporary file
+    else
+        echo "Failed to fetch extra_models.py. Skipping."
+    fi
 }
 
 function pip_install() {
