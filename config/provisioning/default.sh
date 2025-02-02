@@ -25,6 +25,7 @@ NODES=(
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     "https://github.com/benjiyaya/ComfyUI-HunyuanVideoImagesGuider"
     "https://github.com/kijai/ComfyUI-Florence2"
+    "https://github.com/welltop-cn/ComfyUI-TeaCache.git"
     "https://github.com/kijai/ComfyUI-KJNodes"
     "https://github.com/un-seen/comfyui-tensorops"
     "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
