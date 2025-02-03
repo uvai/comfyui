@@ -31,6 +31,7 @@ NODES=(
     "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
     "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
     "https://github.com/crystian/ComfyUI-Crystools.git"
+    "https://github.com/welltop-cn/ComfyUI-TeaCache.git"
     
     
 )
