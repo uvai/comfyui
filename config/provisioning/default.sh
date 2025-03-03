@@ -34,6 +34,8 @@ NODES=(
     "https://github.com/welltop-cn/ComfyUI-TeaCache.git"
     "https://github.com/kijai/ComfyUI-HunyuanVideoWrapper.git"
     "https://github.com/Fannovel16/comfyui_controlnet_aux.git"
+    "https://github.com/chrisgoringe/cg-use-everywhere.git"
+    "https://github.com/Lerc/canvas_tab.git"
     
     
 )
