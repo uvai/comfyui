@@ -40,6 +40,11 @@ NODES=(
     "https://github.com/shadowcz007/comfyui-mixlab-nodes.git"
     "https://github.com/chflame163/ComfyUI_LayerStyle.git"
     "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet.git"
+    "https://github.com/cubiq/ComfyUI_IPAdapter_plus.git"
+    "https://github.com/sipherxyz/comfyui-art-venture.git"
+    "https://github.com/jakechai/ComfyUI-JakeUpgrade.git"
+    "https://github.com/twri/sdxl_prompt_styler.git"
+    "https://github.com/hylarucoder/comfyui-copilot.git"
     
     
 )
