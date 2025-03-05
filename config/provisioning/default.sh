@@ -38,6 +38,8 @@ NODES=(
     "https://github.com/Lerc/canvas_tab.git"
     "https://github.com/huchenlei/ComfyUI-layerdiffuse.git"
     "https://github.com/shadowcz007/comfyui-mixlab-nodes.git"
+    "https://github.com/chflame163/ComfyUI_LayerStyle.git"
+    "https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet.git"
     
     
 )
