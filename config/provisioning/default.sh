@@ -45,6 +45,7 @@ NODES=(
     "https://github.com/jakechai/ComfyUI-JakeUpgrade.git"
     "https://github.com/twri/sdxl_prompt_styler.git"
     "https://github.com/hylarucoder/comfyui-copilot.git"
+    "https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch.git"
     
     
 )
