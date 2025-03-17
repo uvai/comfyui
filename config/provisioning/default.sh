@@ -46,6 +46,7 @@ NODES=(
     "https://github.com/twri/sdxl_prompt_styler.git"
     "https://github.com/hylarucoder/comfyui-copilot.git"
     "https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch.git"
+    "https://github.com/liusida/ComfyUI-AutoCropFaces.git"
     
     
 )
