@@ -22,6 +22,7 @@ PIP_PACKAGES=(
 NODES=(
     "https://github.com/ltdrdata/ComfyUI-Manager"
     "https://github.com/cubiq/ComfyUI_essentials"
+    "https://github.com/SeargeDP/ComfyUI_Searge_LLM.git"
     # "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     # "https://github.com/benjiyaya/ComfyUI-HunyuanVideoImagesGuider"
     # "https://github.com/kijai/ComfyUI-Florence2"
