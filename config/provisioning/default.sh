@@ -67,7 +67,7 @@ UNET_MODELS=(
     # "https://huggingface.co/Kijai/HunyuanVideo_comfy/resolve/6e02d99d3e62501ed5533cd7e174153012cf18c0/hunyuan_video_720_fp8_e4m3fn.safetensors"
     "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/diffusion_models/wan2.1_i2v_480p_14B_fp16.safetensors"
     # "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/diffusion_models/hunyuan_video_v2_replace_image_to_video_720p_bf16.safetensors"
-    "https://huggingface.co/lodestones/Chroma/resolve/main/chroma-unlocked-v29.safetensors"
+    "https://huggingface.co/lodestones/Chroma/resolve/main/chroma-unlocked-v33.safetensors"
 )
 
 LORA_MODELS=(
